@@ -1,0 +1,227 @@
+/* Оверлей модального окна */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+/* Контент модального окна */
+.modal-content {
+  background-color: #ffffff;
+  border-radius: 40px;
+  position: relative;
+  max-width: 1100px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Тело модального окна */
+.modal-body {
+  display: flex;
+  min-height: 400px;
+}
+
+/* Кнопка закрытия */
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: #000000;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  transition: color 0.3s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  color: #666666;
+}
+
+/* Placeholder для изображения */
+.modal-image-placeholder {
+  flex: 0 0 45%;
+  background-color: #f0f0f0;
+  border-radius: 28px;
+  margin: 35px 25px;
+  min-height: 380px;
+}
+
+/* Контент с текстом */
+.modal-text-content {
+  flex: 0 0 55%;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Для модального окна работодателей - больше отступ слева */
+.modal-employer .modal-text-content {
+  padding-left: 70px;
+}
+
+/* Заголовок */
+.modal-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 24px 0;
+  line-height: 1.2;
+}
+
+/* Описание */
+.modal-description {
+  font-size: 15px;
+  color: #333333;
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+}
+
+/* Список возможностей */
+.modal-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px 0;
+}
+
+.modal-features li {
+  font-size: 15px;
+  color: #333333;
+  line-height: 1.8;
+  padding-left: 0;
+  position: relative;
+  margin-bottom: 12px;
+}
+
+/* Убираем синие точки */
+.modal-features li::before {
+  display: none;
+}
+
+/* Кнопка действия */
+.modal-button {
+  padding: 14px 32px;
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #cccccc;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  max-width: 300px;
+}
+
+.modal-button:hover {
+  background-color: #f5f5f5;
+  border-color: #999999;
+  transform: translateY(-2px);
+}
+
+.modal-button:active {
+  transform: translateY(0);
+}
+
+/* Для модального окна соискателей - меняем порядок */
+.modal-candidate .modal-body {
+  flex-direction: row-reverse;
+}
+
+.modal-candidate .modal-text-content {
+  flex: 0 0 55%;
+  padding: 50px;
+}
+
+.modal-candidate .modal-image-placeholder {
+  flex: 0 0 45%;
+  margin: 35px 25px;
+  border-radius: 28px;
+}
+
+/* Адаптивность для планшетов */
+@media (max-width: 968px) {
+  .modal-content {
+    max-width: 700px;
+  }
+  
+  .modal-text-content {
+    padding: 30px;
+  }
+  
+  .modal-title {
+    font-size: 28px;
+  }
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+  .modal-overlay {
+    padding: 10px;
+  }
+  
+  .modal-body {
+    flex-direction: column !important;
+    min-height: auto;
+  }
+  
+  .modal-image-placeholder {
+    flex: 0 0 auto;
+    height: 200px;
+    margin: 15px;
+    min-height: 200px;
+    border-radius: 20px;
+  }
+  
+  .modal-text-content {
+    flex: 1;
+    padding: 30px 20px;
+  }
+  
+  .modal-title {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  
+  .modal-description {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  
+  .modal-features li {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  
+  .modal-button {
+    padding: 12px 24px;
+    font-size: 14px;
+    max-width: 100%;
+  }
+  
+  .modal-close {
+    top: 10px;
+    right: 10px;
+    font-size: 28px;
+  }
+}
+

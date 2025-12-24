@@ -1,0 +1,439 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f3f3f3;
+}
+
+/* Layout */
+.app-chats {
+  display: flex;
+  flex-direction: column; /* Изменено на column: header наверху, main ниже */
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar-chats {
+  width: 100%; /* Полная ширина для мобильности, но в desktop можно скорректировать */
+  background: #fff;
+  border-right: none; /* Убрал border-right, так как теперь не слева */
+  border-bottom: 1px solid #e5e7eb; /* Добавил border-bottom для разделения */
+  padding: 20px;
+  order: -1; /* Если нужно, чтобы sidebar был выше content в столбце */
+}
+
+.logo-chats {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.logo-chats span {
+  color: #1d4ed8;
+}
+
+.menu-item-chats {
+  padding: 12px;
+  margin-bottom: 8px;
+  color: #9ca3af;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.menu-item-chats.active {
+  color: #000;
+  font-weight: 600;
+}
+
+/* Main */
+.main-chats {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Изменено на column: sidebar выше, content ниже */
+}
+
+/* Header */
+.header-chats {
+  width: 100%; /* На всю ширину страницы */
+  background: #fff;
+  padding: 16px 20px;
+  border-radius: 0; /* Убрал border-radius, чтобы был прямоугольный на всю ширину */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0; /* Убрал margin-bottom, так как теперь header отдельно */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Добавил тень для разделения */
+}
+
+/* .header-chats .user {
+  font-weight: 600;
+} */
+
+/* Chat Layout */
+.chat-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+/* Chat */
+.chat {
+  background: #e5e5e5;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.chat-header-chats {
+  background: #fff;
+  padding: 15px;
+  font-weight: 700;
+  font-size: 20px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.chat-body {
+  background: #fff;
+  height: calc(100vh - 180px);
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-body p {
+  color: #000;
+  font-size: 14px;
+}
+
+/* List */
+.list-chats {
+  background: #e5e5e5;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.list-header-chats {
+  background: #fff;
+  padding: 15px;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.list-item-chats {
+  background: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  color: #9ca3af;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.list-item-chats:hover {
+  background: #f8f8f8;
+}
+
+
+/* .header {
+  background-color: #ffffff;
+  box-shadow: none;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100vw;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.header__container {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 66px;
+  padding: 0 4%;
+  background-color: #ffffff;
+}
+
+.categories-section {
+  padding: 0 5% 40px;
+  width: 100%;
+  background-color: #ffffff;
+  flex: 1;
+}
+
+.section-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  color: #1a1a1a;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  justify-content: center;
+}
+
+.block-card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 6px 20px;
+  text-align: left;
+  transition: all 0.3s ease;
+  border: 1px solid #E0E0E0;
+  margin-bottom: 30px;
+  line-height: 50px;
+  margin-right: 20px;
+  box-shadow: 0 10px 15px rgba(161, 160, 160, 0.3);
+}
+
+.category-icon {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-top: 10px;
+  margin-bottom: 0.5px;
+}
+
+.category-icon img {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.category-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+}
+
+.category-count {
+  font-size: 0.7rem;
+  color: #666;
+  font-weight: 400;
+  line-height: 0.1rem;
+  padding-bottom: 6px;
+  margin-bottom: 10px;
+}
+
+.divider {
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 30px 0;
+}
+ */
+
+
+
+* {
+  box-sizing: border-box;
+  font-family: Inter, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f5f7fb;
+}
+
+.app {
+  display: flex;
+  flex-direction: column; /* Изменено на column: header наверху, main ниже */
+  height: 100vh;
+  overflow: hidden
+}
+
+/* Header на всю ширину */
+.header-account {
+  width: 100%; /* На всю ширину страницы */
+  background: #fff;
+  padding: 16px 20px;
+  border-radius: 0; /* Убрал border-radius, чтобы был прямоугольный на всю ширину */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0; /* Убрал margin-bottom, так как теперь header отдельно */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Добавил тень для разделения */
+}
+
+/* Sidebar */
+.sidebar-account {
+  width: 100%; /* Полная ширина для мобильности, но в desktop можно скорректировать */
+  background: #fff;
+  border-right: none; /* Убрал border-right, так как теперь не слева */
+  border-bottom: 1px solid #e5e7eb; /* Добавил border-bottom для разделения */
+  padding: 20px;
+  order: -1; /* Если нужно, чтобы sidebar был выше content в столбце */
+}
+
+.logo-avatar {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.logo-avatar span {
+  color: #2563eb;
+}
+
+.menu-item-account {
+  display: block;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  color: #6b7280;
+  text-decoration: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.menu-item-account.active,
+.menu-item-account:hover {
+  background: #eef2ff;
+  color: #2563eb;
+}
+
+/* Main */
+.main-account {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Изменено на column: sidebar выше, content ниже */
+}
+
+.chat-layout {
+  display: grid;
+  grid-template-columns: 1fr; /* Изменено на 1fr для столбца, или оставьте 2fr 1fr если хотите grid внутри */
+  gap: 20px;
+}
+
+/* Cards */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.block {
+  margin-top: 20px;
+}
+
+h2 {
+  margin: 0 0 10px;
+}
+
+h3 {
+  /* border-bottom: 2px solid #2563eb; */
+  padding-bottom: 6px;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.sub {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.text {
+  font-size: 14px;
+  margin: 8px 0;
+}
+
+/* Skills */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skills span {
+  background: #eef2ff;
+  color: #2563eb;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* Buttons */
+.btn-account {
+  margin-top: 10px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #2563eb;
+  color: #2563eb;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Favorites */
+.job {
+  margin-top: 16px;
+}
+
+.salary {
+  color: #9ca3af;
+  font-size: 14px;
+  margin: 6px 0;
+}
+
+.divider {
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 30px 0;
+}
+
+/* Медиа-запросы для больших экранов */
+@media (min-width: 768px) {
+  .sidebar {
+    width: 220px; /* Восстановил ширину для desktop */
+    border-right: 1px solid #e5e7eb; /* Восстановил border-right */
+    border-bottom: none; /* Убрал border-bottom */
+  }
+
+  .main {
+    flex-direction: row; /* На больших экранах: sidebar слева, content справа */
+  }
+
+  .content {
+    grid-template-columns: 2fr 1fr; /* Восстановил grid для desktop */
+  }
+}
+
+
+
+
+

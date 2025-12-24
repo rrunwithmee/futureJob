@@ -1,0 +1,490 @@
+/* Фиксированный header вверху страницы */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 66px;
+  z-index: 1000;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Контейнер header */
+.header__container {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4%;
+  background-color: #ffffff;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+  .header {
+    height: 60px;
+  }
+}
+
+/* Логотип как ссылка - убираем стандартные стили */
+.header__logo {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+}
+
+/* Логотип с двумя цветами - увеличен на 3px */
+.logo-text {
+  font-size: 20px; /* Увеличен с 17px до 20px (+3px) */
+  font-weight: 700;
+  margin: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.logo-future {
+  color: #1a1a1a; /* Черный цвет */
+  transition: color 0.3s ease;
+}
+
+.logo-job {
+  color: #0084FF; /* Синий цвет */
+  transition: color 0.3s ease;
+}
+
+.logo-text:hover .logo-future {
+  color: #000000;
+}
+
+.logo-text:hover .logo-job {
+  color: #0084FF;
+}
+
+/* Навигация - увеличены шрифты на 3px */
+.header__nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  margin: 0 25px; /* Увеличен отступ */
+}
+
+.nav__list {
+  display: flex;
+  gap: 35px; /* Увеличен промежуток между пунктами */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: #333;
+  font-size: 13px; /* Увеличен с 10px до 13px (+3px) */
+  font-weight: 500;
+  padding: 5px 0; /* Увеличен padding */
+  position: relative;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+  letter-spacing: 0.1px; /* Немного уменьшено межбуквенное расстояние */
+}
+
+.nav__link:hover {
+  color: #0084FF;
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px; /* Увеличена толщина линии */
+  background-color: #0084FF;
+  transition: width 0.3s ease;
+}
+
+.nav__link:hover::after {
+  width: 100%;
+}
+
+/* Активная ссылка - показывает текущую страницу */
+.nav__link.active {
+  color: #0084FF;
+}
+
+.nav__link.active::after {
+  width: 100%;
+}
+
+/* Правая часть - увеличены шрифты на 3px */
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 25px; /* Увеличен промежуток */
+  white-space: nowrap;
+}
+
+.mailing-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Постоянное подчеркивание у "Рассылка" - увеличен шрифт на 3px */
+.mailing-text {
+  font-size: 12px; /* Увеличен с 9px до 12px (+3px) */
+  color: #666;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 2px; /* Увеличен отступ */
+  text-decoration: underline;
+  text-decoration-color: #666;
+  text-underline-offset: 3px; /* Увеличен отступ подчеркивания */
+  text-decoration-thickness: 1px;
+  letter-spacing: 0.05px; /* Немного уменьшено межбуквенное расстояние */
+}
+
+.mailing-text:hover {
+  color: #0084FF;
+  text-decoration-color: #0084FF;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px; /* Увеличен промежуток между кнопками */
+}
+
+.btn {
+  padding: 7px 16px; /* Увеличен padding */
+  font-size: 12px; /* Увеличен с 9px до 12px (+3px) */
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  min-width: 75px; /* Увеличена минимальная ширина */
+  letter-spacing: 0.1px; /* Немного уменьшено межбуквенное расстояние */
+}
+
+/* Кнопка Войти */
+.btn-login {
+  background-color: transparent;
+  color: #0084FF;
+  border: 1.2px solid #0084FF; /* Увеличена толщина границы */
+  border-radius: 18px; /* Увеличено закругление */
+}
+
+.btn-login:hover {
+  background-color: #0084FF;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.2); /* Увеличена тень */
+}
+
+/* Кнопка Регистрация */
+.btn-register {
+  background-color: #0084FF;
+  color: white;
+  border-radius: 18px; /* Увеличено закругление */
+}
+
+.btn-register:hover {
+  background-color: #0084FF;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.3); /* Увеличена тень */
+}
+
+/* Адаптивность для больших экранов */
+@media (min-width: 1600px) {
+  .header__container {
+    padding: 0 70px; /* Увеличены отступы */
+  }
+  
+  .nav__list {
+    gap: 45px; /* Увеличено для больших экранов */
+  }
+  
+  .header__actions {
+    gap: 40px; /* Увеличено для больших экранов */
+  }
+  
+  .logo-text {
+    font-size: 24px; /* Увеличен для больших экранов */
+  }
+  
+  .nav__link {
+    font-size: 16px; /* Увеличен для больших экранов */
+  }
+  
+  .mailing-text {
+    font-size: 15px; /* Увеличен для больших экранов */
+  }
+  
+  .btn {
+    font-size: 15px; /* Увеличен для больших экранов */
+    padding: 9px 20px;
+  }
+}
+
+/* Адаптивность для средних экранов */
+@media (max-width: 1200px) {
+  .header__container {
+    padding: 0 3.5%;
+  }
+  
+  .nav__list {
+    gap: 30px; /* Увеличен */
+  }
+  
+  .header__actions {
+    gap: 20px; /* Увеличен */
+  }
+  
+  .btn {
+    padding: 6px 14px; /* Увеличен */
+    min-width: 70px; /* Увеличен */
+    font-size: 11px; /* Увеличен */
+  }
+  
+  .nav__link {
+    font-size: 12px; /* Увеличен */
+  }
+  
+  .mailing-text {
+    font-size: 11px; /* Увеличен */
+  }
+  
+  .logo-text {
+    font-size: 18px; /* Увеличен */
+  }
+}
+
+@media (max-width: 1024px) {
+  .nav__list {
+    gap: 25px; /* Увеличен */
+  }
+  
+  .header__actions {
+    gap: 18px; /* Увеличен */
+  }
+  
+  .nav__link {
+    font-size: 11px;
+  }
+  
+  .logo-text {
+    font-size: 17px;
+  }
+}
+
+/* Мобильная адаптивность */
+@media (max-width: 900px) {
+  .header__container {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 12px 18px; /* Увеличен padding */
+    gap: 15px; /* Увеличен gap */
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .header__logo {
+    order: 1;
+  }
+  
+  .header__actions {
+    order: 2;
+    margin-left: auto;
+  }
+  
+  .header__nav {
+    order: 3;
+    width: 100%;
+    margin: 15px 0 0 0; /* Увеличен margin */
+    border-top: 1px solid #f0f0f0;
+    padding-top: 15px; /* Увеличен padding */
+  }
+  
+  .nav__list {
+    justify-content: center;
+    gap: 25px; /* Увеличен */
+  }
+  
+  .btn {
+    border-radius: 16px; /* Увеличено закругление */
+  }
+  
+  .logo-text {
+    font-size: 16px; /* Увеличен */
+  }
+  
+  .mailing-text {
+    text-underline-offset: 2px; /* Увеличен */
+  }
+  
+  .nav__link {
+    font-size: 12px; /* Увеличен */
+  }
+}
+
+@media (max-width: 768px) {
+  .header__container {
+    padding: 0 3%;
+  }
+  
+  .header__actions {
+    gap: 15px; /* Увеличен */
+  }
+  
+  .action-buttons {
+    gap: 8px; /* Увеличен */
+  }
+  
+  .btn {
+    padding: 6px 12px; /* Увеличен */
+    min-width: 65px; /* Увеличен */
+    font-size: 10px; /* Увеличен */
+    border-radius: 16px; /* Увеличено закругление */
+  }
+  
+  .mailing-text {
+    font-size: 10px; /* Увеличен */
+    text-underline-offset: 2px;
+  }
+  
+  .nav__list {
+    gap: 20px; /* Увеличен */
+  }
+  
+  .logo-text {
+    font-size: 15px; /* Увеличен */
+  }
+  
+  .nav__link {
+    font-size: 11px; /* Увеличен */
+  }
+}
+
+@media (max-width: 640px) {
+  .header__container {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px 15px; /* Увеличен padding */
+  }
+  
+  .header__logo {
+    text-align: center;
+    margin-bottom: 12px; /* Увеличен margin */
+  }
+  
+  .header__actions {
+    margin: 12px 0 0 0; /* Увеличен margin */
+    justify-content: center;
+    order: 2;
+    flex-direction: column;
+    gap: 12px; /* Увеличен gap */
+  }
+  
+  .mailing-container {
+    order: 1;
+  }
+  
+  .action-buttons {
+    order: 2;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .header__nav {
+    order: 3;
+    margin-top: 12px; /* Увеличен margin */
+    border-top: 1px solid #f0f0f0;
+    padding-top: 12px; /* Увеличен padding */
+  }
+  
+  .nav__list {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px; /* Увеличен gap */
+  }
+  
+  .btn {
+    border-radius: 14px; /* Увеличено закругление */
+  }
+  
+  .logo-text {
+    font-size: 14px; /* Увеличен */
+    justify-content: center;
+  }
+  
+  .mailing-text {
+    text-underline-offset: 2px;
+    font-size: 11px; /* Увеличен */
+  }
+  
+  .nav__link {
+    font-size: 12px; /* Увеличен для мобильных */
+  }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+  .header__container {
+    padding: 8px 2%; /* Увеличен padding */
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 170px; /* Увеличена максимальная ширина */
+    margin: 0 auto;
+  }
+  
+  .btn {
+    width: 100%;
+    border-radius: 14px;
+    padding: 6px 10px; /* Увеличен padding */
+    font-size: 10px; /* Увеличен */
+  }
+  
+  .logo-text {
+    font-size: 13px; /* Увеличен */
+  }
+  
+  .mailing-text {
+    text-underline-offset: 2px;
+    font-size: 10px; /* Увеличен */
+  }
+  
+  .nav__link {
+    font-size: 11px; /* Увеличен */
+  }
+}
+
+/* Для экстремально маленьких экранов */
+@media (max-width: 360px) {
+  .logo-text {
+    font-size: 12px; /* Минимальный размер увеличен */
+  }
+  
+  .nav__link {
+    font-size: 10px; /* Минимальный размер увеличен */
+  }
+  
+  .mailing-text {
+    font-size: 9px; /* Минимальный размер увеличен */
+  }
+  
+  .btn {
+    font-size: 9px; /* Минимальный размер увеличен */
+    padding: 5px 8px; /* Минимальный padding увеличен */
+  }
+}

@@ -1,0 +1,112 @@
+/* Футер */
+.footer {
+  background-color: #F5F5F5;
+  color: #000000;
+  width: 100%;
+  padding: 30px 5% 25px;
+  border-top: 1px solid #e0e0e0;
+  margin-top: auto; /* Прижимает футер к низу */
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: 30px;
+  align-items: start;
+}
+
+/* Группируем работодателей и контакты вместе в две колонки */
+.employers-contacts-group {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 30px;
+  align-items: start;
+}
+
+/* Выравниваем контакты вправо и поднимаем вверх */
+.contacts-column {
+  text-align: right;
+  align-self: start;
+  margin-left: auto;
+}
+
+/* Сдвигаем левые колонки влево */
+.footer-column:not(.employers-contacts-group) {
+  margin-right: 0;
+}
+
+/* Логотип */
+.footer-logo {
+  font-size: 15px;
+  font-weight: 800;
+  color: #000000;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Заголовки колонок */
+.footer-column-title {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.2;
+}
+
+/* Ссылки в колонках */
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.footer-links a {
+  color: #000000;
+  text-decoration: none;
+  font-size: 11px;
+  transition: color 0.3s ease;
+  line-height: 1.4;
+  font-family: 'Arial', sans-serif;
+  font-weight: 500;
+}
+
+.footer-links a:hover {
+  color: #0084FF;
+  text-decoration: underline;
+}
+
+/* Контакты */
+.footer-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-email,
+.contact-phone {
+  font-size: 11px;
+  color: #000000;
+  line-height: 1.4;
+  font-family: 'Arial', sans-serif;
+  font-weight: 500;
+}
+
+.contact-email:hover {
+  color: #0084FF;
+  text-decoration: underline;
+}
